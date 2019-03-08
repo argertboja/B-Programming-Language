@@ -1,0 +1,62 @@
+start(){
+   stringtype #str1 = "Hello to our new programming language" ;
+   stringtype #str2 = "Programming Languages Course";
+   stringtype #str3 = "CS315";
+   integertype #int1 = 8;
+   integertype #int2 = 18;
+   integertype #int3 = 8;
+   booleantype #bool1 = TRUE;
+   booleantype #bool2 = FALSE;
+   booleantype #bool4 = AMBIGUOUS;
+
+   @ constants declaration
+   booleantype const #const1 = FALSE; 
+   booleantype const #const2 = TRUE;
+   booleantype const #const3 = AMBIGUOUS;
+
+   @ testing the connectives
+   #bool2 = #bool1 & const #const1;
+   #bool3 = #bool2 | const #const1;
+   #bool1 = #bool3 -> const #const1;
+   #bool3 = #bool1 <-> const #const2;
+   #bool2 = #bool2 _v_ const #const3;
+   #bool1 = ' #bool3;
+
+   @ testing comparisons
+   #bool1 = ( #int1 == #int2 );
+   #bool1 = ( #int2 < #int3 );
+   #bool1 = ( #int1 > #int3 );
+   #bool1 = ( #int3 <= #int2 );
+   #bool1 = ( #int3 >= #int1 );
+
+   @testing predicate calls with no arguments
+   #bool1 = predictA();
+
+   @testing predicate calls with arguments
+   #bool2 = predictB (:#str2, :#str3);
+
+   @testing loop 
+   until ( #int1 >= 0 ) {
+      
+
+      display("Enter a new number");
+      
+      @testing input
+      scanin(#inputVariable);
+   };
+
+
+@declaration of predictA which is a predicate function with no parameters 
+declare predictA() {
+   stringtype #day = "MONDAY";
+   stringtype #word = "DAYOFWEEK";
+   
+   in case ( #day -> #word ) {
+	return(TRUE);
+   }
+   otherwise {
+      return(AMBIGUOUS);
+   }
+;
+};
+}end
